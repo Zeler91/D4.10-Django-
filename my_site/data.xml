@@ -40,6 +40,15 @@
       <field name="description" type="TextField">Редакция специализирущаяся на зарубежных авторах</field>
       <field name="creation_year" type="SmallIntegerField">1992</field>
    </object>
+   <object model="p_library.friend" pk="1">
+      <field name="name" type="TextField">Александр</field>
+   </object>
+   <object model="p_library.friend" pk="2">
+      <field name="name" type="TextField">Николай</field>
+   </object>
+   <object model="p_library.friend" pk="3">
+      <field name="name" type="TextField">Михаил</field>
+   </object>
    <object model="p_library.book" pk="1">
       <field name="ISBN" type="CharField">9785170622207</field>
       <field name="title" type="TextField">The Growth of the Soil</field>
@@ -49,6 +58,7 @@
       <field name="redaction" rel="ManyToOneRel" to="p_library.redaction">2</field>
       <field name="copy_count" type="SmallIntegerField">2</field>
       <field name="price" type="DecimalField">939.70</field>
+      <field name="friend" rel="ManyToOneRel" to="p_library.friend">3</field>
    </object>
    <object model="p_library.book" pk="2">
       <field name="ISBN" type="CharField">9785931240053</field>
@@ -59,6 +69,7 @@
       <field name="redaction" rel="ManyToOneRel" to="p_library.redaction">1</field>
       <field name="copy_count" type="SmallIntegerField">1</field>
       <field name="price" type="DecimalField">789.15</field>
+      <field name="friend" rel="ManyToOneRel" to="p_library.friend">2</field>
    </object>
    <object model="p_library.book" pk="3">
       <field name="ISBN" type="CharField">9788588603271</field>
@@ -69,6 +80,7 @@
       <field name="redaction" rel="ManyToOneRel" to="p_library.redaction">1</field>
       <field name="copy_count" type="SmallIntegerField">3</field>
       <field name="price" type="DecimalField">2284.66</field>
+      <field name="friend" rel="ManyToOneRel" to="p_library.friend">1</field>
    </object>
    <object model="p_library.book" pk="4">
       <field name="ISBN" type="CharField">9789755630311</field>

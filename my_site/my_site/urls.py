@@ -24,4 +24,5 @@ urlpatterns = [
     path('index/book_increment/', views.book_increment),
     path('index/book_decrement/', views.book_decrement),
     path('redactions/', views.redactions),
+    path('friends/', views.friends),
 ]

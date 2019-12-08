@@ -1,5 +1,5 @@
 from django.contrib import admin
-from p_library.models import Book, Author, Redaction
+from p_library.models import Book, Author, Redaction, Friend
 
 
 @admin.register(Book)
@@ -13,5 +13,8 @@ class AuthorAdmin(admin.ModelAdmin):
 
 @admin.register(Redaction)
 class RedactionAdmin(admin.ModelAdmin):
+    pass
+@admin.register(Friend)
+class FriendAdmin(admin.ModelAdmin):
     pass
 # Register your models here.

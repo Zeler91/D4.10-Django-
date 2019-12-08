@@ -18,6 +18,13 @@ class Redaction(models.Model):
     def __str__(self):
         return "{self.name}".format(self = self) 
 
+
+class Friend(models.Model):
+    name = models.TextField()
+
+    def __str__(self):
+        return "{self.name}".format(self = self)
+
 class Book(models.Model):  
     ISBN = models.CharField(max_length=13)  
     title = models.TextField()  
@@ -25,8 +32,9 @@ class Book(models.Model):
     year_release = models.SmallIntegerField()  
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     redaction = models.ForeignKey(Redaction, on_delete=models.CASCADE)
+    friend = models.ForeignKey(Friend, on_delete=models.CASCADE, blank = True, null = True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     copy_count = models.SmallIntegerField(default = 1)
 
     def __str__(self):
-        return "{self.title}, ".format(self = self) 
+        return "{self.title} ".format(self = self) 

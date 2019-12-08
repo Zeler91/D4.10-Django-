@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from .models import Book, Redaction
+from .models import Book, Redaction, Friend
 from django.shortcuts import redirect
 
 
 def books_list(request):
-    books = Book.objects.all()
-    return HttpResponse(books)
+    return HttpResponse('/index/ - для просмотра библиотеки; /redactions/ - для просмотра издательств; /friends/ - для просмотра друзей; /admin/ - для входа в админ. панель')
 
 def index(request):
     template = loader.get_template('index.html')
@@ -63,3 +62,13 @@ def redactions(request):
         "books": books,
     }
     return HttpResponse(template.render(redactions_data, request))
+
+def friends(request):
+    template = loader.get_template('friends.html')
+    friends = Friend.objects.all()
+    books = Book.objects.all()
+    friends_data = {
+        "friends": friends,
+        "books": books,
+    }
+    return HttpResponse(template.render(friends_data, request))

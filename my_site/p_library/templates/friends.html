@@ -1,0 +1,10 @@
+<h3 style='margin-bottom = 10px'>Список друзей, которым одолжили книги.</h3>
+{% for friend in friends %}
+    <ul class="list-group"><b>{{friend.name}}</b>
+        {% for book in books %}
+            {%if book.friend == friend%}
+                <li class="list-group-item">{{book}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endfor %}
