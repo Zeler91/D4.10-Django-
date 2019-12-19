@@ -5,7 +5,7 @@ from p_library.models import Book, Author, Redaction, Friend
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author',)
-    fields = ('ISBN', 'title', 'description', 'year_release', 'author', 'price', 'redaction')
+    fields = ('ISBN', 'title', 'description', 'year_release', 'author', 'price', 'redaction', 'image')
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):

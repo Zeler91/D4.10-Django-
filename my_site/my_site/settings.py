@@ -22,8 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-# SECRET_KEY = 'n_s3#@up!&=b@vmq4*j5b_m55fy^ftf&^w_9oyrqxgaat8@-1h'
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'n_s3#@up!&=b@vmq4*j5b_m55fy^ftf&^w_9oyrqxgaat8@-1h'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -126,3 +126,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
