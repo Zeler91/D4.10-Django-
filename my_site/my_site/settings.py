@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+from django.urls import reverse_lazy
 import os
 import dj_database_url
 
@@ -27,11 +27,18 @@ SECRET_KEY = 'n_s3#@up!&=b@vmq4*j5b_m55fy^ftf&^w_9oyrqxgaat8@-1h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+SITE_ID = 1
 ALLOWED_HOSTS = ['*']
 
+LOGIN_REDIRECT_URL = reverse_lazy('p_library:nav')
+LOGOUT_REDIRECT_URL = reverse_lazy('p_library:nav')
 
 # Application definition
+
+AUTHENTICATION_BACKENDS = (  
+	'django.contrib.auth.backends.ModelBackend',  
+	'allauth.account.auth_backends.AuthenticationBackend',  
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,7 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'p_library',
-    # 'bootstrap3',
+    'django.contrib.sites',  
+    'allauth',  
+    'allauth.account',  
+    'allauth.socialaccount',  
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [

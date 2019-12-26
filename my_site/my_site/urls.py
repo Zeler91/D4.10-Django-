@@ -16,12 +16,20 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from p_library import views
+from p_library.views import RegisterView, CreateUserProfile
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy  
+from allauth.account.views import login, logout
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.books_list),
+    path('', include('p_library.urls', namespace='p_library')),
+    # path('login/', login, name='login'),  
+    # path('logout/', logout, name='logout'), 
+    path('accounts/', include('allauth.urls')),
     path('index/', views.index),
     path('index/book_increment/', views.book_increment),
     path('index/book_decrement/', views.book_decrement),
